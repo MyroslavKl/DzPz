@@ -1,0 +1,49 @@
+﻿<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="878" Width="1289">
+
+    <Window.Resources>
+
+        <Storyboard x:Key="ImageAnimation">
+            <DoubleAnimationUsingPath
+                Storyboard.TargetName="myImage"
+                Storyboard.TargetProperty="(Canvas.Left)"
+                Duration="0:0:5"
+                RepeatBehavior="Forever">
+                <DoubleAnimationUsingPath.PathGeometry>
+                    <PathGeometry Figures="M 0,0 C 100,100 200,100 300,0"/>
+                </DoubleAnimationUsingPath.PathGeometry>
+            </DoubleAnimationUsingPath>
+            <DoubleAnimationUsingPath
+                Storyboard.TargetName="myImage"
+                Storyboard.TargetProperty="(Canvas.Top)"
+                Duration="0:0:5"
+                RepeatBehavior="Forever">
+                <DoubleAnimationUsingPath.PathGeometry>
+                    <PathGeometry Figures="M 0,0 C 100,100 0,0 200,0"/>
+                </DoubleAnimationUsingPath.PathGeometry>
+            </DoubleAnimationUsingPath>
+        </Storyboard>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Button x:Name="Btn" Width="50" Height="50" Click="Btn_Click" />
+            <Canvas Margin="0,-3,0,-47" RenderTransformOrigin="0.5,0.5">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.005"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Image x:Name="myImage" Source="C:\Users\Myroslav\Desktop\універ\3курс\ПЗ\WpfApp2\WpfApp2\images.png" Width="100" Height="100" Canvas.Left="0" Canvas.Top="0"/>
+            </Canvas>
+        </StackPanel>
+    </Grid>
+</Window>
